@@ -1,2 +1,0 @@
-# GameJam2021-T2
-NUS GDG Game Jam 2021
