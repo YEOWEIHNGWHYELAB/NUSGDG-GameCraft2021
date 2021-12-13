@@ -6,6 +6,8 @@ public class EnemyBullet : MonoBehaviour
 {
     public float timeLeft = 5;
     public float speed = 20f;
+    public int enemyDamage = 20;
+
     public Rigidbody2D rigidBod;
 
     // Start is called before the first frame update
@@ -33,6 +35,11 @@ public class EnemyBullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         // Debug.Log(hitInfo.name);
+
+        if (hitInfo.gameObject.tag == "Player")
+        {
+            FindObjectOfType<AgentHealth>().AgentTakeDamage(enemyDamage);
+        }
 
         if (hitInfo.name != "Enemy")
             Destroy(gameObject);
