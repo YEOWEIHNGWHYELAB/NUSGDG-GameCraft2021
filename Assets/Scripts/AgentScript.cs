@@ -17,8 +17,11 @@ public class AgentScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        agent.SetDestination(target.position);
+        if (!GameManager.gameHasEnded)
+        {
+            agent.SetDestination(target.position);
+        }
     }
 }

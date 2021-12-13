@@ -20,7 +20,10 @@ public class EnemyWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        shoot();
+        if (!GameManager.gameHasEnded)
+        {
+            shoot();
+        }
     }
 
     void shoot()
@@ -33,4 +36,6 @@ public class EnemyWeapon : MonoBehaviour
 
         Instantiate(enemyBullet, firepoint.position, firepoint.rotation);
     }
+
+    
 }

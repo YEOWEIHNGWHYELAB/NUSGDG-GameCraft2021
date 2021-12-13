@@ -9,11 +9,12 @@ public class EnemyBullet : MonoBehaviour
     public int enemyDamage = 20;
 
     public Rigidbody2D rigidBod;
+    Transform player;
 
     // Start is called before the first frame update
     void Start()
     {
-        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 
         Vector2 relativePos = (Vector2)player.position - rigidBod.position;
         relativePos.Normalize();
