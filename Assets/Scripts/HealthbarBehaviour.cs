@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealthbar : MonoBehaviour
+public class HealthbarBehaviour : MonoBehaviour
 {
     public Slider slider;
     public Color low;
     public Color high;
     public Vector3 offset;
+    public bool forPlayer = false;
 
     public void SetHealth(int health, int maxHealth)
     {
@@ -20,6 +21,10 @@ public class EnemyHealthbar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + offset);
+        if (!forPlayer)
+        {
+            slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + offset);
+        }
+        
     }
 }

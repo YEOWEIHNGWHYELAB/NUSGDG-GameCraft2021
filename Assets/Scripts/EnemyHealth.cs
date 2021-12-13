@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth = 100;
     int health;
     public GameObject deathEffect;
-    [SerializeField] private EnemyHealthbar enemyHealthbar;
+    [SerializeField] private HealthbarBehaviour enemyHealthbar;
 
     public void TakeDamage(int damage)
     {
