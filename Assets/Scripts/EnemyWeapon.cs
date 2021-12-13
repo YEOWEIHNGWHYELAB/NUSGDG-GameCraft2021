@@ -5,23 +5,32 @@ using UnityEngine;
 public class EnemyWeapon : MonoBehaviour
 {
 
-    public Transform firepoint;
-    public GameObject enemyBullet;
+    [SerializeField] private Transform firepoint;
+    [SerializeField] private GameObject enemyBullet;
+
+    [SerializeField] private float bulletInterval = 5;
+    private float bulletCooldownTimer;
 
     // Start is called before the first frame update
     void Start()
     {
-        shoot();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        shoot();
     }
 
     void shoot()
     {
+        bulletCooldownTimer -= Time.deltaTime;
+
+        if (bulletCooldownTimer > 0) return;
+
+        bulletCooldownTimer = bulletInterval;
+
         Instantiate(enemyBullet, firepoint.position, firepoint.rotation);
     }
 }

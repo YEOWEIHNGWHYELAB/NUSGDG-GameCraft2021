@@ -21,6 +21,8 @@ public class EnemyBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float angle = Mathf.Atan2(rigidBod.velocity.y, rigidBod.velocity.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         timeLeft -= Time.deltaTime;
         if (timeLeft < 0)
         {
