@@ -39,7 +39,7 @@ public class EnemyBullet : MonoBehaviour
 
         if (hitInfo.gameObject.tag == "Player")
         {
-            FindObjectOfType<AgentHealth>().AgentTakeDamage(enemyDamage);
+            FindObjectOfType<PlayerHealth>().TakeDamage(enemyDamage);
         }
 
         if (hitInfo.name != "Enemy")

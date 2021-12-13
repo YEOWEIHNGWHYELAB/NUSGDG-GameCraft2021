@@ -2,23 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AgentHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
-    public int health = 100;
+    public int maxHealth = 100;
+    int health;
     public GameObject deathEffect;
     public GameManager gm;
+    [SerializeField] private EnemyHealthbar enemyHealthbar;
 
     private void Start()
     {
+        health = maxHealth;
         gm = FindObjectOfType<GameManager>();
+        enemyHealthbar.SetHealth(health, maxHealth);
     }
 
-    public void AgentTakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         // Debug.Log("Voodoo Ouch");
 
         health -= damage;
-
+        enemyHealthbar.SetHealth(health, maxHealth);
         if (health <= 0)
         {
             Die();
@@ -31,10 +35,6 @@ public class AgentHealth : MonoBehaviour
         gm.EndGame(false);
         Destroy(gameObject);
     }
-
-    // Start is called before the first frame update
-    
-
     // Update is called once per frame
     void Update()
     {
