@@ -8,13 +8,13 @@ public class PlayerHealth : MonoBehaviour
     int health;
     public GameObject deathEffect;
     public GameManager gm;
-    [SerializeField] private EnemyHealthbar enemyHealthbar;
+    [SerializeField] private HealthbarBehaviour playerHealthbar;
 
     private void Start()
     {
         health = maxHealth;
         gm = FindObjectOfType<GameManager>();
-        enemyHealthbar.SetHealth(health, maxHealth);
+        playerHealthbar.SetHealth(health, maxHealth);
     }
 
     public void TakeDamage(int damage)
@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
         // Debug.Log("Voodoo Ouch");
 
         health -= damage;
-        enemyHealthbar.SetHealth(health, maxHealth);
+        playerHealthbar.SetHealth(health, maxHealth);
         if (health <= 0)
         {
             Die();
