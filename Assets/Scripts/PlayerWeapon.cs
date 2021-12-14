@@ -26,8 +26,6 @@ public class PlayerWeapon : MonoBehaviour
         tempPos.z = 10;
         mousePos = cam.ScreenToWorldPoint(tempPos);
 
-        Debug.Log(mousePos);
-
         if (Input.GetKeyDown("space"))
         {
             if (!GameManager.gameHasEnded)
