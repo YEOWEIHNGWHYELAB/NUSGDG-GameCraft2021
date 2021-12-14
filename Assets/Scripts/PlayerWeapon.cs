@@ -22,7 +22,9 @@ public class PlayerWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        var tempPos = Input.mousePosition;
+        tempPos.z = 10;
+        mousePos = cam.ScreenToWorldPoint(tempPos);
 
         Debug.Log(mousePos);
 
