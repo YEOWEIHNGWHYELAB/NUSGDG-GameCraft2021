@@ -7,7 +7,9 @@ public class EnemyControl : MonoBehaviour
     public float speed;
     private Animator animator;
     public int[] movementVector = new int[3];
+    GameObject player;
     Vector3 playerCoordinates;
+    Vector3 enemyCoordinates;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +19,7 @@ public class EnemyControl : MonoBehaviour
         movementVector[2] = 1;
 
         animator = GetComponent<Animator>();
-        playerCoordinates = GameObject.FindGameObjectWithTag("Player").transform.position;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -26,8 +28,8 @@ public class EnemyControl : MonoBehaviour
         // int randomVectorX = Random.Range(0, 3);
         // int randomVectorY = Random.Range(0, 3);
 
-        
-        Vector3 enemyCoordinates = transform.position;
+        playerCoordinates = player.transform.position;
+        enemyCoordinates = transform.position;
 
         float playerXCoor = playerCoordinates.x;
         float playerYCoor = playerCoordinates.y;
