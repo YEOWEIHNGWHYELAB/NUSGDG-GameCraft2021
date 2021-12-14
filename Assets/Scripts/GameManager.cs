@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
 
     public void EndGame(bool win)
     {
-        Debug.Log("Im here");
         gameHasEnded = true;
         if (win)
         {

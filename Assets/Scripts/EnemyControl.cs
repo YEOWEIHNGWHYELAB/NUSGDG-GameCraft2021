@@ -27,8 +27,10 @@ public class EnemyControl : MonoBehaviour
     {
         // int randomVectorX = Random.Range(0, 3);
         // int randomVectorY = Random.Range(0, 3);
-
-        playerCoordinates = player.transform.position;
+        if (!GameManager.gameHasEnded)
+        {
+            playerCoordinates = player.transform.position;
+        }
         enemyCoordinates = transform.position;
 
         float playerXCoor = playerCoordinates.x;
