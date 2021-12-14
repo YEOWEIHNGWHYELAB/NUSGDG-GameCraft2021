@@ -23,8 +23,6 @@ public class EnemyControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 dir = Vector2.zero;
-
         // int randomVectorX = Random.Range(0, 3);
         // int randomVectorY = Random.Range(0, 3);
 
@@ -43,46 +41,34 @@ public class EnemyControl : MonoBehaviour
         
         if (playerDeltaY > 0)
         {
-            dir.y = 1;
             animator.SetInteger("Direction", 1);
 
             if (Mathf.Abs(playerDeltaX) > Mathf.Abs(playerDeltaY))
             {
                 if (playerDeltaX < 0)
                 {
-                    dir.x = -1;
                     animator.SetInteger("Direction", 3);
-                }
-                else if (playerDeltaX > 0)
-                {
-                    dir.x = 1;
+                } else if (playerDeltaX > 0) {
                     animator.SetInteger("Direction", 2);
                 }
             }
         }
         else if (playerDeltaY < 0)
         {
-            dir.y = -1;
             animator.SetInteger("Direction", 0);
 
             if (Mathf.Abs(playerDeltaX) > Mathf.Abs(playerDeltaY))
             {
                 if (playerDeltaX < 0)
                 {
-                    dir.x = -1;
                     animator.SetInteger("Direction", 3);
-                }
-                else if (playerDeltaX > 0)
-                {
-                    dir.x = 1;
+                } else if (playerDeltaX > 0) {
                     animator.SetInteger("Direction", 2);
                 }
             }
         }
 
-        dir.Normalize();
         // animator.SetBool("IsMoving", dir.magnitude > 0);
 
-        // GetComponent<Rigidbody2D>().velocity = speed * dir;
     }
 }

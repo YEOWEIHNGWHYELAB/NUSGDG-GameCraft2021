@@ -4950,6 +4950,33 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3217592818893481910, guid: f3b1f71d86ae6d74eb9193593e2aa82f,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 963194227}
+    - target: {fileID: 3217592818893481910, guid: f3b1f71d86ae6d74eb9193593e2aa82f,
+        type: 3}
+      propertyPath: firepoint
+      value: 
+      objectReference: {fileID: 1572597615}
+    - target: {fileID: 3217592818893481910, guid: f3b1f71d86ae6d74eb9193593e2aa82f,
+        type: 3}
+      propertyPath: enemyBullet
+      value: 
+      objectReference: {fileID: 6492762202477593731, guid: 38645a1c23be79c4590417b11f6e0849,
+        type: 3}
+    - target: {fileID: 3217592818893481910, guid: f3b1f71d86ae6d74eb9193593e2aa82f,
+        type: 3}
+      propertyPath: playerBullet
+      value: 
+      objectReference: {fileID: 6492762202477593731, guid: 38645a1c23be79c4590417b11f6e0849,
+        type: 3}
+    - target: {fileID: 3217592818893481910, guid: f3b1f71d86ae6d74eb9193593e2aa82f,
+        type: 3}
+      propertyPath: bulletInterval
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3b1f71d86ae6d74eb9193593e2aa82f, type: 3}
 --- !u!1001 &1230755880405975025

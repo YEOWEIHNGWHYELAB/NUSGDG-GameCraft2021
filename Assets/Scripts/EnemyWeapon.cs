@@ -36,6 +36,4 @@ public class EnemyWeapon : MonoBehaviour
 
         Instantiate(enemyBullet, firepoint.position, firepoint.rotation);
     }
-
-    
 }
