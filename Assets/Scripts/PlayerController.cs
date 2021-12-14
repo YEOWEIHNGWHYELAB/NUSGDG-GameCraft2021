@@ -24,15 +24,20 @@ public class PlayerController : MonoBehaviour
     public Transform firepoint;
     public GameObject playerBullet;
     public Camera cam;
+    public WeaponbarBehaviour playerWeaponStatus;
 
     private float bulletCooldownTimer;
+    float weaponReady;
+    private float weaponReadyMax;
     Vector3 mousePos;
     Vector2 requiredVector;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        weaponReadyMax = bulletInterval;
+        weaponReady = weaponReadyMax;
+        playerWeaponStatus.SetWeaponStatus(weaponReady, weaponReadyMax);
     }
 
     // Update is called once per frame
@@ -42,7 +47,12 @@ public class PlayerController : MonoBehaviour
         Aim();
         Move();
         Animate();
-        bulletCooldownTimer -= Time.deltaTime;
+        if (bulletCooldownTimer > 0)
+        {
+            bulletCooldownTimer -= Time.deltaTime;
+            weaponReady += Time.deltaTime;
+            playerWeaponStatus.SetWeaponStatus(weaponReady, weaponReadyMax);
+        }
         if (Input.GetKeyDown("space"))
         {
             if (!GameManager.gameHasEnded)
@@ -97,6 +107,8 @@ public class PlayerController : MonoBehaviour
 
         if (bulletCooldownTimer > 0) return;
 
+        weaponReady = 0;
+        playerWeaponStatus.SetWeaponStatus(weaponReady, weaponReadyMax);
         bulletCooldownTimer = bulletInterval;
 
         float angle = Mathf.Atan2(requiredVector.y, requiredVector.x) * Mathf.Rad2Deg;

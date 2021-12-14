@@ -5536,6 +5536,16 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 7038752613496005806, guid: d248b86f964cd4748ae7cc4d0ad9246c,
+        type: 3}
+      propertyPath: bulletInterval
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038752613496005806, guid: d248b86f964cd4748ae7cc4d0ad9246c,
+        type: 3}
+      propertyPath: playerWeaponStatus
+      value: 
+      objectReference: {fileID: 785091168}
     - target: {fileID: 7038752613496005807, guid: d248b86f964cd4748ae7cc4d0ad9246c,
         type: 3}
       propertyPath: m_RootOrder
