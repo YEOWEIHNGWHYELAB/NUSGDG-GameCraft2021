@@ -42,7 +42,7 @@ public class EnemyBullet : MonoBehaviour
             FindObjectOfType<PlayerHealth>().TakeDamage(bulletDamage);
         }
 
-        if (hitInfo.tag != "EnemyRed" && hitInfo.tag != "EnemyBlue" && hitInfo.tag != "EnemyGreen" && hitInfo.tag != "Bullet")
+        if (hitInfo.tag != "EnemyRed" && hitInfo.tag != "EnemyBlue" && hitInfo.tag != "EnemyGreen" && hitInfo.tag != "EnemyYellow" && hitInfo.tag != "Bullet")
             Destroy(gameObject);
     }
 }

@@ -70,5 +70,19 @@ public class PlayerBullet : MonoBehaviour
                 greenEnemyHealthList[0].TakeDamage(playerDamage);
             }
         }
+
+        if (hitInfo.tag == "EnemyYellow")
+        {
+            playerBullet.velocity = Vector2.zero;
+            playerBullet.isKinematic = true;
+            transform.parent = hitInfo.transform;
+            GameObject[] obj = GameObject.FindGameObjectsWithTag("EnemyYellow");
+
+            for (int l = 0; l < obj.Length; l++)
+            {
+                EnemyHealth[] yellowEnemyHealthList = obj[l].GetComponents<EnemyHealth>();
+                yellowEnemyHealthList[0].TakeDamage(playerDamage);
+            }
+        }
     }
 }

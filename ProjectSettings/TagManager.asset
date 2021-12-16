@@ -9,6 +9,7 @@ TagManager:
   - EnemyGreen
   - Enemy
   - Bullet
+  - EnemyYellow
   layers:
   - Default
   - TransparentFX
