@@ -42,7 +42,7 @@ public class EnemyBullet : MonoBehaviour
             FindObjectOfType<PlayerHealth>().TakeDamage(enemyDamage);
         }
 
-        if (hitInfo.name != "EnemyRed" && hitInfo.name != "EnemyBlue" && hitInfo.name != "EnemyGreen" && hitInfo.name != "EnemyBullet(Clone)")
+        if (hitInfo.tag != "EnemyRed" && hitInfo.tag != "EnemyBlue" && hitInfo.tag != "EnemyGreen" && hitInfo.tag != "Bullet")
             Destroy(gameObject);
     }
 }
