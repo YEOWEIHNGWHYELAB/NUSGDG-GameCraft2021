@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBullet: {fileID: 715747042008667801}
   speed: 20
-  timeLeft: 2
+  timeLeft: 4
   playerDamage: 20
 --- !u!1 &8318239037771815616
 GameObject:
