@@ -8,6 +8,7 @@ public class PlayerBullet : MonoBehaviour
     public float speed = 20f;
     public float timeLeft = 2;
     public int playerDamage = 20;
+    bool isStuck = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,28 +29,29 @@ public class PlayerBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        // Debug.Log(hitInfo.gameObject.tag);
-        if (hitInfo.tag == "EnemyRed")
+        if (!isStuck && hitInfo.tag != "Player" && hitInfo.tag != "Wall")
         {
+            isStuck = true;
             playerBullet.velocity = Vector2.zero;
             playerBullet.isKinematic = true;
             transform.parent = hitInfo.transform;
+        }
+
+        if (hitInfo.tag == "EnemyRed")
+        {
             GameObject[] obj = GameObject.FindGameObjectsWithTag("EnemyRed");
-            
+
             for (int i = 0; i < obj.Length; i++)
             {
                 EnemyHealth[] redEnemyHealthList = obj[i].GetComponents<EnemyHealth>();
                 redEnemyHealthList[0].TakeDamage(playerDamage);
             }
         }
-        
+
         if (hitInfo.tag == "EnemyBlue")
         {
-            playerBullet.velocity = Vector2.zero;
-            playerBullet.isKinematic = true;
-            transform.parent = hitInfo.transform;
             GameObject[] obj = GameObject.FindGameObjectsWithTag("EnemyBlue");
-            
+
             for (int j = 0; j < obj.Length; j++)
             {
                 EnemyHealth[] blueEnemyHealthList = obj[j].GetComponents<EnemyHealth>();
@@ -59,11 +61,8 @@ public class PlayerBullet : MonoBehaviour
 
         if (hitInfo.tag == "EnemyGreen")
         {
-            playerBullet.velocity = Vector2.zero;
-            playerBullet.isKinematic = true;
-            transform.parent = hitInfo.transform;
             GameObject[] obj = GameObject.FindGameObjectsWithTag("EnemyGreen");
-            
+
             for (int k = 0; k < obj.Length; k++)
             {
                 EnemyHealth[] greenEnemyHealthList = obj[k].GetComponents<EnemyHealth>();
@@ -73,9 +72,6 @@ public class PlayerBullet : MonoBehaviour
 
         if (hitInfo.tag == "EnemyYellow")
         {
-            playerBullet.velocity = Vector2.zero;
-            playerBullet.isKinematic = true;
-            transform.parent = hitInfo.transform;
             GameObject[] obj = GameObject.FindGameObjectsWithTag("EnemyYellow");
 
             for (int l = 0; l < obj.Length; l++)

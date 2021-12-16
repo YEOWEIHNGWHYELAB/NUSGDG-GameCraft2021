@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float crosshairDistance = 1.0f;
     public float bulletInterval = 2.0f;
     public float bulletForce = 20f;
-    
+
 
     [Space]
     [Header("Debug Stats:")]
@@ -58,15 +58,8 @@ public class PlayerController : MonoBehaviour
             if (!GameManager.gameHasEnded)
             {
                 Shoot();
-                RayCastTest();
             }
         }
-    }
-
-    void RayCastTest()
-    {
-        //RaycastHit2D hit = Physics2D.Raycast(transform.position, requiredVector)
-        Debug.DrawRay(transform.position, new Vector3(requiredVector.x, requiredVector.y, 0f), Color.red,10f);
     }
 
     void ProcessInputs()
@@ -120,6 +113,7 @@ public class PlayerController : MonoBehaviour
 
         float angle = Mathf.Atan2(requiredVector.y, requiredVector.x) * Mathf.Rad2Deg;
 
+        Destroy(GameObject.Find("PlayerBullet(Clone)"));
         GameObject bullet = Instantiate(playerBullet, firepoint.position, Quaternion.AngleAxis(angle, Vector3.forward));
         Rigidbody2D rigidBod = bullet.GetComponent<Rigidbody2D>();
         rigidBod.AddForce((Vector2)requiredVector * bulletForce, ForceMode2D.Impulse);
