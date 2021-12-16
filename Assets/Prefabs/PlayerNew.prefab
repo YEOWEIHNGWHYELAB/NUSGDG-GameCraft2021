@@ -89,9 +89,10 @@ MonoBehaviour:
   animator: {fileID: 7038752613939983243}
   crosshair: {fileID: 739330698231701363}
   firepoint: {fileID: 7038752613496005807}
-  playerBullet: {fileID: 6492762202477593731, guid: 38645a1c23be79c4590417b11f6e0849,
+  playerBullet: {fileID: 5035972488293652053, guid: 939edb2ca93524e48859b806c5ecadc5,
     type: 3}
   cam: {fileID: 0}
+  playerWeaponStatus: {fileID: 0}
 --- !u!50 &7038752613496005800
 Rigidbody2D:
   serializedVersion: 4
