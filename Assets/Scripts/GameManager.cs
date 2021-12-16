@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
         {
             pauseMenuUI.transform.Find("Quit_Button").gameObject.SetActive(false);
         }
-        
     }
 
     private void Update()

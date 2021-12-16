@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
             weaponReady += Time.deltaTime;
             playerWeaponStatus.SetWeaponStatus(weaponReady, weaponReadyMax);
         }
-        if (Input.GetKeyDown("space"))
+        if (Input.GetMouseButtonDown(0))
         {
             if (!GameManager.gameHasEnded)
             {
@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
         mousePos = cam.ScreenToWorldPoint(tempPos);
         requiredVector = (Vector2)mousePos - (Vector2)firepoint.position;
 
-        //crosshair.transform.localPosition = crosshair.transform.position * crosshairDistance;
+        // crosshair.transform.localPosition = crosshair.transform.position * crosshairDistance;
         LookAtTarget(mousePos, crosshair.transform);
 
     }

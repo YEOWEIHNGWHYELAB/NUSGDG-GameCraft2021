@@ -30,9 +30,31 @@ public class PlayerBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.gameObject.tag == "Enemy")
+        // Debug.Log(hitInfo.gameObject.tag);
+        if (hitInfo.gameObject.tag == "EnemyRed")
         {
-            FindObjectOfType<EnemyHealth>().TakeDamage(playerDamage);
+            // FindObjectOfType<EnemyHealth>().TakeDamage(playerDamage);
+
+            GameObject obj = GameObject.FindGameObjectWithTag("EnemyRed");
+            EnemyHealth[] redEnemyHealthList = obj.GetComponents<EnemyHealth>();
+            redEnemyHealthList[0].TakeDamage(playerDamage);
+            Destroy(gameObject);
+        }
+        
+        if (hitInfo.gameObject.tag == "EnemyBlue")
+        {
+            GameObject obj = GameObject.FindGameObjectWithTag("EnemyBlue");
+            EnemyHealth[] blueEnemyHealthList = obj.GetComponents<EnemyHealth>();
+            blueEnemyHealthList[0].TakeDamage(playerDamage);
+            Destroy(gameObject);
+        }
+
+        if (hitInfo.gameObject.tag == "EnemyGreen")
+        {
+            GameObject obj = GameObject.FindGameObjectWithTag("EnemyGreen");
+            EnemyHealth[] greenEnemyHealthList = obj.GetComponents<EnemyHealth>();
+            greenEnemyHealthList[0].TakeDamage(playerDamage);
+            Destroy(gameObject);
         }
     }
 }
