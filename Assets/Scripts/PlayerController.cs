@@ -58,8 +58,15 @@ public class PlayerController : MonoBehaviour
             if (!GameManager.gameHasEnded)
             {
                 Shoot();
+                RayCastTest();
             }
         }
+    }
+
+    void RayCastTest()
+    {
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, requiredVector)
+        Debug.DrawRay(transform.position, new Vector3(requiredVector.x, requiredVector.y, 0f), Color.red,10f);
     }
 
     void ProcessInputs()

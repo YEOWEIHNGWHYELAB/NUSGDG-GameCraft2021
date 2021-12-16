@@ -10,11 +10,13 @@ public class GameManager : MonoBehaviour
     public static bool gameHasEnded = false;
     public static bool gameIsPaused = false;
 
+    CursorMode cursorMode = CursorMode.Auto;
 
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private GameObject playerUI;
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private TextMeshProUGUI gameOverTextUI;
+    [SerializeField] private Texture2D cursorTexture;
 
     private void Start()
     {
@@ -26,6 +28,14 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (!gameHasEnded && !gameIsPaused)
+        {
+            Cursor.SetCursor(cursorTexture, Vector2.zero, cursorMode);
+        }
+        else
+        {
+            Cursor.SetCursor(null, Vector2.zero, cursorMode);
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (gameIsPaused)

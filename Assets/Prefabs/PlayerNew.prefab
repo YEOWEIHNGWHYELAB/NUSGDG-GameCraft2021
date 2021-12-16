@@ -81,7 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMovementSpeed: 5
   crosshairDistance: 2.5
-  bulletInterval: 0
+  bulletInterval: 2
   bulletForce: 10
   movementDirection: {x: 0, y: 0}
   movementSpeed: 0
@@ -163,7 +163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7038752613535683396
 Transform:
   m_ObjectHideFlags: 0

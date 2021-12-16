@@ -177,11 +177,10 @@ GameObject:
   - component: {fileID: 4958178863480602322}
   - component: {fileID: 4958178863480602321}
   - component: {fileID: 4958178863480602320}
-  - component: {fileID: 4958178863480602327}
-  - component: {fileID: 4958178863480602326}
   - component: {fileID: 4958178863480602325}
   - component: {fileID: 4958178863480602324}
   - component: {fileID: 4958178863480602315}
+  - component: {fileID: -3341946206889720284}
   m_Layer: 20
   m_Name: EnemyRed
   m_TagString: EnemyRed
@@ -322,36 +321,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4958178863480602327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4958178863480602314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44108db78641ae8478b7c80d331d618c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  movementVector: 000000000000000000000000
---- !u!114 &4958178863480602326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4958178863480602314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0297d37cb3a59154fa3393645e650747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firepoint: {fileID: 4958178863480602332}
-  enemyBullet: {fileID: 5802653531275486031, guid: 28a899289924629458686026277abfd7,
-    type: 3}
-  bulletInterval: 2
 --- !u!114 &4958178863480602325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +371,31 @@ MonoBehaviour:
   maxHealth: 100
   deathEffect: {fileID: 0}
   enemyHealthbar: {fileID: 4958178864294092406}
+--- !u!114 &-3341946206889720284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958178863480602314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8499854fca10dd48880b9bbf363b411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleeRangeThreshold: 1
+  pursuitRange: 8
+  chaseRange: 6
+  shootingRange: 4
+  meleeDamage: 10
+  enemyTransform: {fileID: 4958178863480602332}
+  bulletInterval: 5
+  lowWalkPointRangeX: 0
+  walkPointRangeX: 0
+  lowWalkPointRangeY: 0
+  walkPointRangeY: 0
+  enemyBullet: {fileID: 5802653531275486031, guid: 28a899289924629458686026277abfd7,
+    type: 3}
 --- !u!1 &4958178864294092405
 GameObject:
   m_ObjectHideFlags: 0

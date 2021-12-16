@@ -18,8 +18,6 @@ public class PlayerBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float angle = Mathf.Atan2(playerBullet.velocity.y, playerBullet.velocity.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         timeLeft -= Time.deltaTime;
         if (timeLeft < 0)
@@ -33,7 +31,9 @@ public class PlayerBullet : MonoBehaviour
         // Debug.Log(hitInfo.gameObject.tag);
         if (hitInfo.tag == "EnemyRed")
         {
-
+            playerBullet.velocity = Vector2.zero;
+            playerBullet.isKinematic = true;
+            transform.parent = hitInfo.transform;
             GameObject[] obj = GameObject.FindGameObjectsWithTag("EnemyRed");
             
             for (int i = 0; i < obj.Length; i++)
@@ -41,12 +41,13 @@ public class PlayerBullet : MonoBehaviour
                 EnemyHealth[] redEnemyHealthList = obj[i].GetComponents<EnemyHealth>();
                 redEnemyHealthList[0].TakeDamage(playerDamage);
             }
-            
-            Destroy(gameObject);
         }
         
         if (hitInfo.tag == "EnemyBlue")
         {
+            playerBullet.velocity = Vector2.zero;
+            playerBullet.isKinematic = true;
+            transform.parent = hitInfo.transform;
             GameObject[] obj = GameObject.FindGameObjectsWithTag("EnemyBlue");
             
             for (int j = 0; j < obj.Length; j++)
@@ -54,12 +55,13 @@ public class PlayerBullet : MonoBehaviour
                 EnemyHealth[] blueEnemyHealthList = obj[j].GetComponents<EnemyHealth>();
                 blueEnemyHealthList[0].TakeDamage(playerDamage);
             }
-
-            Destroy(gameObject);
         }
 
         if (hitInfo.tag == "EnemyGreen")
         {
+            playerBullet.velocity = Vector2.zero;
+            playerBullet.isKinematic = true;
+            transform.parent = hitInfo.transform;
             GameObject[] obj = GameObject.FindGameObjectsWithTag("EnemyGreen");
             
             for (int k = 0; k < obj.Length; k++)
@@ -67,8 +69,6 @@ public class PlayerBullet : MonoBehaviour
                 EnemyHealth[] greenEnemyHealthList = obj[k].GetComponents<EnemyHealth>();
                 greenEnemyHealthList[0].TakeDamage(playerDamage);
             }
-
-            Destroy(gameObject);
         }
     }
 }

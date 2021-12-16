@@ -9,9 +9,9 @@ public class EnemyControlMeleeRange : MonoBehaviour
     private NavMeshAgent agent;
     public float meleeRangeThreshold = 1;
     public float pursuitRange = 8;
-    public float chaseToRange = 6;
+    public float chaseRange = 6;
     public float shootingRange = 4;
-    private float currentMeleeDistance;
+    private float currentPlayerDistance;
     public int meleeDamage = 10;
     public Transform enemyTransform;
     private Transform playerTransform;
@@ -36,9 +36,10 @@ public class EnemyControlMeleeRange : MonoBehaviour
 
     private void Patroling()
     {
-        currentMeleeDistance = Vector2.Distance((Vector2)enemyTransform.position, (Vector2)playerTransform.position);
+        // Debug.Log("Patroling!");
+        currentPlayerDistance = Vector2.Distance((Vector2)enemyTransform.position, (Vector2)playerTransform.position);
 
-        if (currentMeleeDistance < pursuitRange)
+        if (currentPlayerDistance < pursuitRange)
         {
             return;
         }
@@ -59,24 +60,26 @@ public class EnemyControlMeleeRange : MonoBehaviour
 
     private void ChasePlayer(Transform player)
     {
-        // Debug.Log("Chase!");
+        // Debug.Log("Chase To Melee");
         agent.CalculatePath(player.position, navMeshPath);
         agent.SetPath(navMeshPath);
     }
 
     private void GetInRangeToPlayer(Transform player)
     {
-        // Debug.Log("Chase!");
+        // Debug.Log("Chase To Range!");
         agent.CalculatePath(player.position, navMeshPath);
         agent.SetPath(navMeshPath);
     }
 
     private void RangeShooting()
     {
-
+        // Debug.Log("Shooting!");
+        agent.isStopped = true;
+        Shoot();
     }
 
-    void shoot()
+    void Shoot()
     {
         bulletCooldownTimer -= Time.deltaTime;
 
@@ -93,13 +96,18 @@ public class EnemyControlMeleeRange : MonoBehaviour
         if (!GameManager.gameHasEnded)
         {
             playerTransform = GameObject.Find("PlayerNew").transform;
-            currentMeleeDistance = Vector2.Distance((Vector2)enemyTransform.position, (Vector2)playerTransform.position);
+            currentPlayerDistance = Vector2.Distance((Vector2)enemyTransform.position, (Vector2)playerTransform.position);
 
-            if (currentMeleeDistance > pursuitRange) {
+            if (agent.isStopped)
+            {
+                agent.isStopped = false;
+            }
+
+            if (currentPlayerDistance > pursuitRange) {
                 Patroling();
-            } else if (currentMeleeDistance > chaseToRange) {
-                ChasePlayer(playerTransform);
-            } else if (currentMeleeDistance > shootingRange) {
+            } else if (currentPlayerDistance > chaseRange) {
+                GetInRangeToPlayer(playerTransform);
+            } else if (currentPlayerDistance > shootingRange) {
                 RangeShooting();
             } else {
                 ChasePlayer(playerTransform);
@@ -111,7 +119,7 @@ public class EnemyControlMeleeRange : MonoBehaviour
                 return;
             }
 
-            if (currentMeleeDistance < meleeRangeThreshold)
+            if (currentPlayerDistance < meleeRangeThreshold)
             {
                 FindObjectOfType<PlayerHealth>().TakeDamage(meleeDamage);
                 bulletCooldownTimer = bulletInterval;

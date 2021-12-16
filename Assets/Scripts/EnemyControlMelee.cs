@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyControlRange : MonoBehaviour
+public class EnemyControlMelee : MonoBehaviour
 {
     // Start is called before the first frame update
     private NavMeshAgent agent;
+    public float meleeRangeThreshold = 1;
     public float pursuitRange = 8;
-    public float chaseRange = 6;
     private float currentPlayerDistance;
+    public int meleeDamage = 10;
     public Transform enemyTransform;
     private Transform playerTransform;
-    public float bulletInterval = 5;
+    public float meleeInterval = 5;
     private float bulletCooldownTimer = 0;
     public float lowWalkPointRangeX;
     public float walkPointRangeX;
@@ -55,30 +56,11 @@ public class EnemyControlRange : MonoBehaviour
         }
     }
 
-
-    private void GetInRangeToPlayer(Transform player)
+    private void ChasePlayer(Transform player)
     {
-        // Debug.Log("Chase To Range!");
+        // Debug.Log("Chase To Melee");
         agent.CalculatePath(player.position, navMeshPath);
         agent.SetPath(navMeshPath);
-    }
-
-    private void RangeShooting()
-    {
-        // Debug.Log("Shooting!");
-        agent.isStopped = true;
-        Shoot();
-    }
-
-    void Shoot()
-    {
-        bulletCooldownTimer -= Time.deltaTime;
-
-        if (bulletCooldownTimer > 0) return;
-
-        bulletCooldownTimer = bulletInterval;
-
-        Instantiate(enemyBullet, enemyTransform.position, enemyTransform.rotation);
     }
 
     // Update is called once per frame
@@ -89,24 +71,24 @@ public class EnemyControlRange : MonoBehaviour
             playerTransform = GameObject.Find("PlayerNew").transform;
             currentPlayerDistance = Vector2.Distance((Vector2)enemyTransform.position, (Vector2)playerTransform.position);
 
-            if (agent.isStopped)
-            {
-                agent.isStopped = false;
-            }
-
             if (currentPlayerDistance > pursuitRange)
             {
                 Patroling();
-            } else if (currentPlayerDistance > chaseRange) {
-                GetInRangeToPlayer(playerTransform);
-            } else {
-                RangeShooting();
+            } else
+            {
+                ChasePlayer(playerTransform);
             }
 
             if (bulletCooldownTimer > 0)
             {
                 bulletCooldownTimer -= Time.deltaTime;
                 return;
+            }
+
+            if (currentPlayerDistance < meleeRangeThreshold)
+            {
+                FindObjectOfType<PlayerHealth>().TakeDamage(meleeDamage);
+                bulletCooldownTimer = meleeInterval;
             }
         }
     }
