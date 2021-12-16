@@ -6,7 +6,7 @@ public class EnemyBullet : MonoBehaviour
 {
     public float timeLeft = 5;
     public float speed = 20f;
-    public int enemyDamage = 20;
+    public int bulletDamage = 20;
 
     public Rigidbody2D rigidBod;
     Transform player;
@@ -39,7 +39,7 @@ public class EnemyBullet : MonoBehaviour
 
         if (hitInfo.gameObject.tag == "Player")
         {
-            FindObjectOfType<PlayerHealth>().TakeDamage(enemyDamage);
+            FindObjectOfType<PlayerHealth>().TakeDamage(bulletDamage);
         }
 
         if (hitInfo.tag != "EnemyRed" && hitInfo.tag != "EnemyBlue" && hitInfo.tag != "EnemyGreen" && hitInfo.tag != "Bullet")
