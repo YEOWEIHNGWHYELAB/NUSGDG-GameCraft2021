@@ -8,8 +8,9 @@ public class EnemyControlMeleeRange : MonoBehaviour
     // Start is called before the first frame update
     private NavMeshAgent agent;
     public float meleeRangeThreshold = 1;
-    public float shootingRange = 6;
-    public float pursuitRange = 4;
+    public float pursuitRange = 8;
+    public float chaseToRange = 6;
+    public float shootingRange = 4;
     private float currentMeleeDistance;
     public int meleeDamage = 10;
     public Transform enemyTransform;
@@ -20,43 +21,70 @@ public class EnemyControlMeleeRange : MonoBehaviour
     public float walkPointRangeX;
     public float lowWalkPointRangeY;
     public float walkPointRangeY;
-    private bool walkPointReached = true;
     private Vector2 patrolDestination;
+    NavMeshPath navMeshPath;
+
+    [SerializeField] private GameObject enemyBullet;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        navMeshPath = new NavMeshPath();
     }
 
     private void Patroling()
     {
-        if (walkPointReached)
-        {
-            float randomVectorX = Random.Range(lowWalkPointRangeX, walkPointRangeX);
-            float randomVectorY = Random.Range(lowWalkPointRangeY, walkPointRangeY);
-            patrolDestination = new Vector2(randomVectorX, randomVectorY);
+        currentMeleeDistance = Vector2.Distance((Vector2)enemyTransform.position, (Vector2)playerTransform.position);
 
-            agent.SetDestination(patrolDestination);
+        if (currentMeleeDistance < pursuitRange)
+        {
+            return;
         }
 
+        float randomVectorX = Random.Range(lowWalkPointRangeX, walkPointRangeX);
+        float randomVectorY = Random.Range(lowWalkPointRangeY, walkPointRangeY);
+        patrolDestination = new Vector2(randomVectorX, randomVectorY);
 
-        walkPointReached = false;
-
-        Vector2 distance = (Vector2)enemyTransform.position - patrolDestination;
-
-        Debug.Log(distance.magnitude);
-
-        // WalkPoint Reached
-        if (distance.magnitude < 4)
-            walkPointReached = true;
+        if (agent.CalculatePath(patrolDestination, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
+        {
+            agent.SetPath(navMeshPath);
+        }
+        else
+        {
+            Patroling();
+        }
     }
 
     private void ChasePlayer(Transform player)
     {
-        Debug.Log("Chase!");
-        agent.SetDestination(player.position);
+        // Debug.Log("Chase!");
+        agent.CalculatePath(player.position, navMeshPath);
+        agent.SetPath(navMeshPath);
+    }
+
+    private void GetInRangeToPlayer(Transform player)
+    {
+        // Debug.Log("Chase!");
+        agent.CalculatePath(player.position, navMeshPath);
+        agent.SetPath(navMeshPath);
+    }
+
+    private void RangeShooting()
+    {
+
+    }
+
+    void shoot()
+    {
+        bulletCooldownTimer -= Time.deltaTime;
+
+        if (bulletCooldownTimer > 0) return;
+
+        bulletCooldownTimer = bulletInterval;
+
+        Instantiate(enemyBullet, enemyTransform.position, enemyTransform.rotation);
     }
 
     // Update is called once per frame
@@ -67,12 +95,14 @@ public class EnemyControlMeleeRange : MonoBehaviour
             playerTransform = GameObject.Find("PlayerNew").transform;
             currentMeleeDistance = Vector2.Distance((Vector2)enemyTransform.position, (Vector2)playerTransform.position);
 
-            if (currentMeleeDistance > pursuitRange)
-            {
+            if (currentMeleeDistance > pursuitRange) {
                 Patroling();
+            } else if (currentMeleeDistance > chaseToRange) {
+                ChasePlayer(playerTransform);
+            } else if (currentMeleeDistance > shootingRange) {
+                RangeShooting();
             } else {
                 ChasePlayer(playerTransform);
-                walkPointReached = true;
             }
 
             if (bulletCooldownTimer > 0)

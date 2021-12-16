@@ -19,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        // Debug.Log("Voodoo Ouch");
+        Debug.Log("Voodoo Ouch");
 
         health -= damage;
         playerHealthbar.SetHealth(health, maxHealth);

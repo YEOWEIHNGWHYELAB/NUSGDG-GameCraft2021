@@ -7,7 +7,7 @@ public class PlayerBullet : MonoBehaviour
     public Rigidbody2D playerBullet;
     public float speed = 20f;
     public float timeLeft = 2;
-    public int bulletDamage = 20;
+    public int playerDamage = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -33,14 +33,13 @@ public class PlayerBullet : MonoBehaviour
         // Debug.Log(hitInfo.gameObject.tag);
         if (hitInfo.tag == "EnemyRed")
         {
-            // FindObjectOfType<EnemyHealth>().TakeDamage(playerDamage);
 
             GameObject[] obj = GameObject.FindGameObjectsWithTag("EnemyRed");
             
             for (int i = 0; i < obj.Length; i++)
             {
                 EnemyHealth[] redEnemyHealthList = obj[i].GetComponents<EnemyHealth>();
-                redEnemyHealthList[0].TakeDamage(bulletDamage);
+                redEnemyHealthList[0].TakeDamage(playerDamage);
             }
             
             Destroy(gameObject);
@@ -53,7 +52,7 @@ public class PlayerBullet : MonoBehaviour
             for (int j = 0; j < obj.Length; j++)
             {
                 EnemyHealth[] blueEnemyHealthList = obj[j].GetComponents<EnemyHealth>();
-                blueEnemyHealthList[0].TakeDamage(bulletDamage);
+                blueEnemyHealthList[0].TakeDamage(playerDamage);
             }
 
             Destroy(gameObject);
@@ -66,7 +65,7 @@ public class PlayerBullet : MonoBehaviour
             for (int k = 0; k < obj.Length; k++)
             {
                 EnemyHealth[] greenEnemyHealthList = obj[k].GetComponents<EnemyHealth>();
-                greenEnemyHealthList[0].TakeDamage(bulletDamage);
+                greenEnemyHealthList[0].TakeDamage(playerDamage);
             }
 
             Destroy(gameObject);

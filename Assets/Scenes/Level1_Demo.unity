@@ -1591,7 +1591,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeRangeThreshold: 1
-  pursuitRange: 2
+  shootingRange: 6
+  pursuitRange: 3
   meleeDamage: 10
   enemyTransform: {fileID: 1015427832}
   bulletInterval: 5
@@ -5567,7 +5568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1987481416
 Transform:
   m_ObjectHideFlags: 0
@@ -5846,6 +5847,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemyRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958178863480602314, guid: 1a30b371fbeca144d8c33fd3ed57f407,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4958178863480602321, guid: 1a30b371fbeca144d8c33fd3ed57f407,
         type: 3}
