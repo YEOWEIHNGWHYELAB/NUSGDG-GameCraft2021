@@ -31,29 +31,44 @@ public class PlayerBullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         // Debug.Log(hitInfo.gameObject.tag);
-        if (hitInfo.gameObject.tag == "EnemyRed")
+        if (hitInfo.tag == "EnemyRed")
         {
             // FindObjectOfType<EnemyHealth>().TakeDamage(playerDamage);
 
-            GameObject obj = GameObject.FindGameObjectWithTag("EnemyRed");
-            EnemyHealth[] redEnemyHealthList = obj.GetComponents<EnemyHealth>();
-            redEnemyHealthList[0].TakeDamage(playerDamage);
+            GameObject[] obj = GameObject.FindGameObjectsWithTag("EnemyRed");
+            
+            for (int i = 0; i < obj.Length; i++)
+            {
+                EnemyHealth[] redEnemyHealthList = obj[i].GetComponents<EnemyHealth>();
+                redEnemyHealthList[0].TakeDamage(playerDamage);
+            }
+            
             Destroy(gameObject);
         }
         
-        if (hitInfo.gameObject.tag == "EnemyBlue")
+        if (hitInfo.tag == "EnemyBlue")
         {
-            GameObject obj = GameObject.FindGameObjectWithTag("EnemyBlue");
-            EnemyHealth[] blueEnemyHealthList = obj.GetComponents<EnemyHealth>();
-            blueEnemyHealthList[0].TakeDamage(playerDamage);
+            GameObject[] obj = GameObject.FindGameObjectsWithTag("EnemyBlue");
+            
+            for (int j = 0; j < obj.Length; j++)
+            {
+                EnemyHealth[] blueEnemyHealthList = obj[j].GetComponents<EnemyHealth>();
+                blueEnemyHealthList[0].TakeDamage(playerDamage);
+            }
+
             Destroy(gameObject);
         }
 
-        if (hitInfo.gameObject.tag == "EnemyGreen")
+        if (hitInfo.tag == "EnemyGreen")
         {
-            GameObject obj = GameObject.FindGameObjectWithTag("EnemyGreen");
-            EnemyHealth[] greenEnemyHealthList = obj.GetComponents<EnemyHealth>();
-            greenEnemyHealthList[0].TakeDamage(playerDamage);
+            GameObject[] obj = GameObject.FindGameObjectsWithTag("EnemyGreen");
+            
+            for (int k = 0; k < obj.Length; k++)
+            {
+                EnemyHealth[] greenEnemyHealthList = obj[k].GetComponents<EnemyHealth>();
+                greenEnemyHealthList[0].TakeDamage(playerDamage);
+            }
+
             Destroy(gameObject);
         }
     }
