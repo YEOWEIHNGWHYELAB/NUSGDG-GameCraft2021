@@ -8,8 +8,8 @@ public class EnemyControl : MonoBehaviour
     private Animator animator;
     public int[] movementVector = new int[3];
     GameObject player;
-    Vector3 playerCoordinates;
-    Vector3 enemyCoordinates;
+    Vector2 playerCoordinates;
+    Vector2 enemyCoordinates;
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +64,8 @@ public class EnemyControl : MonoBehaviour
             playerCoordinates = player.transform.position;
         }
         enemyCoordinates = transform.position;
+        Debug.DrawRay(enemyCoordinates, playerCoordinates - enemyCoordinates, Color.red, 10f);
+        
 
         float playerXCoor = playerCoordinates.x;
         float playerYCoor = playerCoordinates.y;
@@ -106,5 +108,10 @@ public class EnemyControl : MonoBehaviour
 
         // animator.SetBool("IsMoving", dir.magnitude > 0);
 
+    }
+
+    public Vector2 GetDirectionVector2D(float angle)
+    {
+        return new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
     }
 }
