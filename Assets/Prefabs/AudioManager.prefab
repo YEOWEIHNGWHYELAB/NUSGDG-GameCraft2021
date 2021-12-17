@@ -57,8 +57,8 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Theme
-    clip: {fileID: 8300000, guid: bb23699fcefe2b14eaf95ed1bc30acd0, type: 3}
-    volume: 0.06
+    clip: {fileID: 8300000, guid: 5cf765de823957c4281cfd0a2bb78496, type: 3}
+    volume: 0.03
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -82,7 +82,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Melee
     clip: {fileID: 8300000, guid: 1dd5ef0efb3d60940996ce66b76ce5c4, type: 3}
-    volume: 0.1
+    volume: 0.05
     pitch: 1.69
     loop: 0
     source: {fileID: 0}
@@ -91,4 +91,10 @@ MonoBehaviour:
     volume: 0.2
     pitch: 1.69
     loop: 0
+    source: {fileID: 0}
+  - name: MenuTheme
+    clip: {fileID: 8300000, guid: bb23699fcefe2b14eaf95ed1bc30acd0, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 1
     source: {fileID: 0}

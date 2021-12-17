@@ -20,6 +20,7 @@ public class EnemyControlRange : MonoBehaviour
     public float walkPointRangeY;
     private Vector2 patrolDestination;
     NavMeshPath navMeshPath;
+    public Animator animator;
 
     [SerializeField] private GameObject enemyBullet;
 
@@ -88,7 +89,7 @@ public class EnemyControlRange : MonoBehaviour
         {
             playerTransform = GameObject.Find("PlayerNew").transform;
             currentPlayerDistance = Vector2.Distance((Vector2)enemyTransform.position, (Vector2)playerTransform.position);
-
+            lookAtAnimation();
             if (agent.isStopped)
             {
                 agent.isStopped = false;
@@ -109,5 +110,53 @@ public class EnemyControlRange : MonoBehaviour
                 return;
             }
         }
+    }
+
+    void lookAtAnimation()
+    {
+        float playerXCoor = playerTransform.position.x;
+        float playerYCoor = playerTransform.position.y;
+
+        float enemyXCoor = transform.position.x;
+        float enemyYCoor = transform.position.y;
+
+        float playerDeltaX = playerXCoor - enemyXCoor;
+        float playerDeltaY = playerYCoor - enemyYCoor;
+
+
+        if (playerDeltaY > 0)
+        {
+            animator.SetInteger("Direction", 1);
+
+            if (Mathf.Abs(playerDeltaX) > Mathf.Abs(playerDeltaY))
+            {
+                if (playerDeltaX < 0)
+                {
+                    animator.SetInteger("Direction", 3);
+                }
+                else if (playerDeltaX > 0)
+                {
+                    animator.SetInteger("Direction", 2);
+                }
+            }
+        }
+        else if (playerDeltaY < 0)
+        {
+            animator.SetInteger("Direction", 0);
+
+            if (Mathf.Abs(playerDeltaX) > Mathf.Abs(playerDeltaY))
+            {
+                if (playerDeltaX < 0)
+                {
+                    animator.SetInteger("Direction", 3);
+                }
+                else if (playerDeltaX > 0)
+                {
+                    animator.SetInteger("Direction", 2);
+                }
+            }
+        }
+
+        // animator.SetBool("IsMoving", dir.magnitude > 0);
     }
 }
