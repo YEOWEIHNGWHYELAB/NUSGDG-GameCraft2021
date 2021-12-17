@@ -25,13 +25,13 @@ GamePlay:
 In this game, there are four different enemies shown with different tint (green, red, blue, yellow). 
 They have different behaviours and are always in patrol mode until when the player get close to it. 
 
-Green - Melee only. (Starts chasing player within a distance)
-Blue - Shooting only. (Withing a certain distance from player, it will start moving closer to player 
+- Green - Melee only. (Starts chasing player within a distance)
+- Blue - Shooting only. (Withing a certain distance from player, it will start moving closer to player 
 	before stopping and shooting.)
-Red - Melee & Shooting. (Withing a certain distance from player, it will start moving closer to player 
+- Red - Melee & Shooting. (Withing a certain distance from player, it will start moving closer to player 
 	before stopping and shooting. If the player move any closer to it, it will start moving close to the 
 	player and attack player with melee).
-Yellow - Shooting only. (Will chase player all the time).
+- Yellow - Shooting only. (Will chase player all the time).
 
 Enemies can be pushed away if you are being cornered or unable to run away from enemy. Some objects like boxes 
 are movable which can be moved out of the way to clear the path or used as a shield!
