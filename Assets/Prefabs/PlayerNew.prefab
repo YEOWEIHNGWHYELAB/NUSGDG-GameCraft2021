@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 7038752613496005801}
   - component: {fileID: 4357501822978629982}
   - component: {fileID: 276467910}
+  - component: {fileID: 1782120641}
   m_Layer: 0
   m_Name: PlayerNew
   m_TagString: Player
@@ -169,12 +170,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7038752613496005805}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c3d6601a6d9a774c80b4f6ed7d83d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   yellowEnemy: {fileID: 0}
+  redEnemy: {fileID: 0}
+  greenEnemy: {fileID: 0}
+  blueEnemy: {fileID: 0}
 --- !u!114 &276467910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +196,14 @@ MonoBehaviour:
     type: 3}
   gm: {fileID: 0}
   playerHealthbar: {fileID: 0}
+--- !u!81 &1782120641
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7038752613496005805}
+  m_Enabled: 1
 --- !u!1 &7038752613535683402
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ TagManager:
   - EnemyYellow
   - Wall
   - Trigger
+  - Props
   layers:
   - Default
   - TransparentFX

@@ -14,7 +14,8 @@ public class PopUpSystem : MonoBehaviour
     {
         popUpBox.SetActive(true);
         popUpText.text = text;
-        StopTime();
+        animator.SetTrigger("open");
+        Invoke("StopTime", 0.3f);
     }
 
     void StopTime()
@@ -24,10 +25,10 @@ public class PopUpSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && animator.GetCurrentAnimatorStateInfo(0).IsName("PopUp_Open"))
         {
             Time.timeScale = 1f;
-            popUpBox.SetActive(false);
+            animator.SetTrigger("close");
         }
     }
 }
