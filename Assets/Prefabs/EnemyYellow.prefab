@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firepoint: {fileID: 4958178863480602332}
-  enemyBullet: {fileID: 5802653531275486031, guid: 28a899289924629458686026277abfd7,
+  enemyBullet: {fileID: 4287912996863775986, guid: 50f5689bd3837d84da800f5a293eb66b,
     type: 3}
   bulletInterval: 2
 --- !u!195 &4958178863480602324
