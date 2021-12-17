@@ -17,11 +17,18 @@ Mouse - Aim
 Mouse Left Button - Fire VooDoo Pin
 
 Game Story:
-You are a wizard who is physically weaker than the others but with magic you can turn the tables. 
-You can a turn into a Voodoo and then turn your opponent's strength against themself. In other words, 
-you can lose (take damage deliberately in voodoo mode) in order to win (kill your opponents)!
+You are stuck in a warzone and you are a wizard who is physically weaker than the others. But with magic 
+you can turn the tables. You can a turn into a Voodoo and then turn your opponent's strength against themself. 
+In other words, you can lose (take damage deliberately in voodoo mode) in order to win (kill your opponents)!
 
 GamePlay: 
+Your objective is to escape the enemy infested map through the portal.
+
+Your main weapon is the VooDoo pin which can be used to pin your enemy, you can damage that particular enemy
+by getting hit by the arrow that is shot by that particular enemy. Getting hit by other enemy will damage 
+yourself. Each VooDoo pin can last a duration of 5 second once it is stucked onto an enemy, make good use 
+of this time to get hit by that particular enemy struck by the VooDoo pin.
+
 In this game, there are four different enemies shown with different tint (green, red, blue, yellow). 
 They have different behaviours and are always in patrol mode until when the player get close to it. 
 

@@ -46,7 +46,7 @@ public class Tutorial_Control : MonoBehaviour
 
     void Plot()
     {
-        pop.PopUp("You are a wizard who is physically weaker than the others but with magic you can turn the tables. You can a turn into a Voodoo and then turn your opponent's strength against themself. In other words, you can lose (take damage deliberately in voodoo mode) in order to win (kill your opponents)!");
+        pop.PopUp("You are a wizard who is physically weaker than the others but with magic you can turn the tables. You can a turn into a Voodoo and then turn your opponent's strength against themself. You can damage that particular enemy by getting hit by the arrow that is shot by that particular enemy");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
