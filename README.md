@@ -37,11 +37,11 @@ Enemies can be pushed away if you are being cornered or unable to run away from 
 are movable which can be moved out of the way to clear the path or used as a shield!
 
 Attribution:
-*Player Art Asset: https://gamekrazzy.itch.io/8-direction-top-down-character
-*Environment Art Asset: https://assetstore.unity.com/packages/2d/environments/pixel-art-top-down-basic-187605
-*Icon Art Asset: https://assetstore.unity.com/packages/2d/gui/icons/pixel-art-icon-pack-rpg-158343
-*2D Navmesh: https://unitylist.com/p/hqq/Nav-Mesh-Plus
-*VooDoo Menu Art: https://www.vecteezy.com/free-vector/voodoo-doll (lavarmsg)
-*VooDoo Level Selection Art: https://www.vecteezy.com/free-vector/voodoo-doll (zhengdacool)
-*Menu Music: https://pixabay.com/music/modern-classical-the-introvert-michael-kobrin-10959/
-*In Game Music: https://pixabay.com/music/main-title-chasing-victory-main-9448/
+- Player Art Asset: https://gamekrazzy.itch.io/8-direction-top-down-character
+- Environment Art Asset: https://assetstore.unity.com/packages/2d/environments/pixel-art-top-down-basic-187605
+- Icon Art Asset: https://assetstore.unity.com/packages/2d/gui/icons/pixel-art-icon-pack-rpg-158343
+- 2D Navmesh: https://unitylist.com/p/hqq/Nav-Mesh-Plus
+- VooDoo Menu Art: https://www.vecteezy.com/free-vector/voodoo-doll (lavarmsg)
+- VooDoo Level Selection Art: https://www.vecteezy.com/free-vector/voodoo-doll (zhengdacool)
+- Menu Music: https://pixabay.com/music/modern-classical-the-introvert-michael-kobrin-10959/
+- In Game Music: https://pixabay.com/music/main-title-chasing-victory-main-9448/
