@@ -36,7 +36,7 @@ public class Tutorial_Control : MonoBehaviour
 
     void EnemyDescription()
     {
-        pop.PopUp("In this game, there are 4 different enemies with different tint (green, red, blue, yellow). They have different behaviours and are always in patrol mode until when you get close to it. Push the enemy away if you are being cornered or unable to run away from enemy.");
+        pop.PopUp("In this game, there are four different enemies with different tint (green, red, blue, yellow). They have different behaviours and are always in patrol mode until when you get close to it. Push the enemy away if you are being cornered or unable to run away from enemy.");
     }
 
     void CollisionDescription()
@@ -82,7 +82,7 @@ public class Tutorial_Control : MonoBehaviour
             }
             else if (collision.gameObject.name == "TriggerYellowEnemy")
             {
-                pop.PopUp("Yellow Enemies will keep chasing you and shoot you when they detect you and only stop chasing once you out run them!");
+                pop.PopUp("Yellow Enemies will keep chasing you non-sotp and shoot you!");
                 yellowEnemy.SetActive(true);
             }
         }
