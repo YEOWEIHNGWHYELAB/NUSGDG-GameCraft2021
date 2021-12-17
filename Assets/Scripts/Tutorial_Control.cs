@@ -36,7 +36,7 @@ public class Tutorial_Control : MonoBehaviour
 
     void EnemyDescription()
     {
-        pop.PopUp("In this game, there are 4 different enemies with different tint (green, red, blue, yellow). They have different behaviours and are always in patrol mode until when you get close to it.");
+        pop.PopUp("In this game, there are 4 different enemies with different tint (green, red, blue, yellow). They have different behaviours and are always in patrol mode until when you get close to it. Push the enemy away if you are being cornered or unable to run away from enemy.");
     }
 
     void CollisionDescription()
