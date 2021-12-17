@@ -11,6 +11,18 @@ public class LevelSelector : MonoBehaviour
 
     }
 
+    public void StartLevel()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Level_Selector");
+    }
+
+    public void Quit()
+    {
+        Time.timeScale = 1;
+        
+    }
+
     public void Level1Button()
     {
         Time.timeScale = 1;
