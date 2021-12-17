@@ -82,7 +82,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Melee
     clip: {fileID: 8300000, guid: 1dd5ef0efb3d60940996ce66b76ce5c4, type: 3}
-    volume: 0.2
+    volume: 0.1
     pitch: 1.69
     loop: 0
     source: {fileID: 0}
