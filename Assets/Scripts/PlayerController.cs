@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour
         float angle = Mathf.Atan2(requiredVector.y, requiredVector.x) * Mathf.Rad2Deg;
         GameManager.pinStuckColor = "null";
         Destroy(GameObject.Find("PlayerBullet(Clone)"));
+        FindObjectOfType<AudioManager>().Play("PinFire");
         GameObject bullet = Instantiate(playerBullet, firepoint.position, Quaternion.AngleAxis(angle, Vector3.forward));
         Rigidbody2D rigidBod = bullet.GetComponent<Rigidbody2D>();
         rigidBod.AddForce((Vector2)requiredVector * bulletForce, ForceMode2D.Impulse);
