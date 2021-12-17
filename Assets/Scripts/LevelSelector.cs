@@ -17,6 +17,12 @@ public class LevelSelector : MonoBehaviour
         SceneManager.LoadScene("Level1_Demo");
     }
 
+    public void Level1TrapEveryWhereButton()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Level1_TrapsEveryWhere");
+    }
+
     public void TutorialButton()
     {
         Time.timeScale = 1;
