@@ -21,6 +21,8 @@ public class EnemyControlMelee : MonoBehaviour
     public float walkPointRangeY;
     private Vector2 patrolDestination;
     NavMeshPath navMeshPath;
+    public GameObject meleeAttack;
+    public Animator animator;
 
     [SerializeField] private GameObject enemyBullet;
 
@@ -63,14 +65,30 @@ public class EnemyControlMelee : MonoBehaviour
         agent.SetPath(navMeshPath);
     }
 
+    void Aim()
+    {
+        LookAtTarget(playerTransform.position, meleeAttack.transform);
+    }
+
+    void LookAtTarget(Vector3 target, Transform source)
+    {
+        Vector3 diff = target - source.transform.position;
+        diff.Normalize();
+
+        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        source.transform.rotation = Quaternion.Euler(0f, 0f, rot_z + 90f);
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
+        
         if (!GameManager.gameHasEnded)
         {
             playerTransform = GameObject.Find("PlayerNew").transform;
             currentPlayerDistance = Vector2.Distance((Vector2)enemyTransform.position, (Vector2)playerTransform.position);
-
+            Aim();
+            lookAtAnimation();
             if (currentPlayerDistance > pursuitRange)
             {
                 Patroling();
@@ -87,10 +105,59 @@ public class EnemyControlMelee : MonoBehaviour
 
             if (currentPlayerDistance < meleeRangeThreshold)
             {
+                meleeAttack.GetComponentInChildren<Animator>().SetTrigger("attack");
                 FindObjectOfType<AudioManager>().Play("Melee");
                 FindObjectOfType<PlayerHealth>().TakeDamage(meleeDamage, tag);
                 bulletCooldownTimer = meleeInterval;
             }
         }
+    }
+
+    void lookAtAnimation()
+    {
+        float playerXCoor = playerTransform.position.x;
+        float playerYCoor = playerTransform.position.y;
+
+        float enemyXCoor = transform.position.x;
+        float enemyYCoor = transform.position.y;
+
+        float playerDeltaX = playerXCoor - enemyXCoor;
+        float playerDeltaY = playerYCoor - enemyYCoor;
+
+
+        if (playerDeltaY > 0)
+        {
+            animator.SetInteger("Direction", 1);
+
+            if (Mathf.Abs(playerDeltaX) > Mathf.Abs(playerDeltaY))
+            {
+                if (playerDeltaX < 0)
+                {
+                    animator.SetInteger("Direction", 3);
+                }
+                else if (playerDeltaX > 0)
+                {
+                    animator.SetInteger("Direction", 2);
+                }
+            }
+        }
+        else if (playerDeltaY < 0)
+        {
+            animator.SetInteger("Direction", 0);
+
+            if (Mathf.Abs(playerDeltaX) > Mathf.Abs(playerDeltaY))
+            {
+                if (playerDeltaX < 0)
+                {
+                    animator.SetInteger("Direction", 3);
+                }
+                else if (playerDeltaX > 0)
+                {
+                    animator.SetInteger("Direction", 2);
+                }
+            }
+        }
+
+        // animator.SetBool("IsMoving", dir.magnitude > 0);
     }
 }

@@ -33,8 +33,13 @@ public class EnemyControl : MonoBehaviour
         }
         enemyCoordinates = transform.position;
         //Debug.DrawRay(enemyCoordinates, playerCoordinates - enemyCoordinates, Color.red, 10f);
-        
 
+        lookAtAnimation();
+
+    }
+
+    void lookAtAnimation()
+    {
         float playerXCoor = playerCoordinates.x;
         float playerYCoor = playerCoordinates.y;
 
@@ -44,7 +49,7 @@ public class EnemyControl : MonoBehaviour
         float playerDeltaX = playerXCoor - enemyXCoor;
         float playerDeltaY = playerYCoor - enemyYCoor;
 
-        
+
         if (playerDeltaY > 0)
         {
             animator.SetInteger("Direction", 1);
@@ -54,7 +59,9 @@ public class EnemyControl : MonoBehaviour
                 if (playerDeltaX < 0)
                 {
                     animator.SetInteger("Direction", 3);
-                } else if (playerDeltaX > 0) {
+                }
+                else if (playerDeltaX > 0)
+                {
                     animator.SetInteger("Direction", 2);
                 }
             }
@@ -68,14 +75,15 @@ public class EnemyControl : MonoBehaviour
                 if (playerDeltaX < 0)
                 {
                     animator.SetInteger("Direction", 3);
-                } else if (playerDeltaX > 0) {
+                }
+                else if (playerDeltaX > 0)
+                {
                     animator.SetInteger("Direction", 2);
                 }
             }
         }
 
         // animator.SetBool("IsMoving", dir.magnitude > 0);
-
     }
 
     public Vector2 GetDirectionVector2D(float angle)

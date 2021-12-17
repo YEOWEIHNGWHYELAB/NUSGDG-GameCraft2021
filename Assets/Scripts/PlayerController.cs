@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public GameObject crosshair;
     public Transform firepoint;
+    public Transform firepointParent;
     public GameObject playerBullet;
     public Camera cam;
     public WeaponbarBehaviour playerWeaponStatus;
@@ -90,6 +91,7 @@ public class PlayerController : MonoBehaviour
 
         // crosshair.transform.localPosition = crosshair.transform.position * crosshairDistance;
         LookAtTarget(mousePos, crosshair.transform);
+        LookAtTarget(mousePos, firepointParent);
 
     }
 

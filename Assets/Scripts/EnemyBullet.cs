@@ -37,14 +37,13 @@ public class EnemyBullet : MonoBehaviour
     {
         // Debug.Log(hitInfo.name);
 
-        if (hitInfo.gameObject.tag == "Player")
+        if (hitInfo.tag == "Player")
         {
             FindObjectOfType<PlayerHealth>().TakeDamage(bulletDamage, tag);
-        } else
+        } else if (hitInfo.tag == "EnemyYellow" && hitInfo.tag == "EnemyRed" && hitInfo.tag == "EnemyBlue" && hitInfo.tag == "EnemyGreen" && hitInfo.tag == "Wall" && hitInfo.tag == "Props")
         {
             Destroy(gameObject);
         }
-
             
     }
 }

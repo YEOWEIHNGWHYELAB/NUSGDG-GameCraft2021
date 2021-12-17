@@ -378,6 +378,7 @@ MonoBehaviour:
   walkPointRangeX: 4.3
   lowWalkPointRangeY: -3.6
   walkPointRangeY: 2.8
+  animator: {fileID: 1651386916516167754}
   enemyBullet: {fileID: 194274740047617987, guid: 24ca4a6882a81d144841c349e1b09a87,
     type: 3}
 --- !u!61 &6354751771579240965
@@ -557,7 +558,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
