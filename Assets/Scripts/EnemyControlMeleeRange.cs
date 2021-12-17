@@ -121,7 +121,7 @@ public class EnemyControlMeleeRange : MonoBehaviour
 
             if (currentPlayerDistance < meleeRangeThreshold)
             {
-                FindObjectOfType<PlayerHealth>().TakeDamage(meleeDamage);
+                FindObjectOfType<PlayerHealth>().TakeDamage(meleeDamage, tag);
                 bulletCooldownTimer = bulletInterval;
             }
         }

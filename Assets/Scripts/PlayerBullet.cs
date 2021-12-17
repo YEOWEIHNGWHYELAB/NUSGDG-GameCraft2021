@@ -19,10 +19,10 @@ public class PlayerBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         timeLeft -= Time.deltaTime;
         if (timeLeft < 0)
         {
+            GameManager.pinStuckColor = "null";
             Destroy(gameObject);
         }
     }
@@ -37,7 +37,13 @@ public class PlayerBullet : MonoBehaviour
             transform.parent = hitInfo.transform;
         }
 
-        if (hitInfo.tag == "EnemyRed")
+        if (hitInfo.tag == "EnemyRed" || hitInfo.tag == "EnemyBlue" || hitInfo.tag == "EnemyGreen" || hitInfo.tag == "EnemyYellow")
+        {
+            GameManager.pinStuckColor = hitInfo.tag;
+        }
+
+        //pin dont do damange
+        /*if (hitInfo.tag == "EnemyRed")
         {
             GameObject[] obj = GameObject.FindGameObjectsWithTag("EnemyRed");
 
@@ -79,6 +85,6 @@ public class PlayerBullet : MonoBehaviour
                 EnemyHealth[] yellowEnemyHealthList = obj[l].GetComponents<EnemyHealth>();
                 yellowEnemyHealthList[0].TakeDamage(playerDamage);
             }
-        }
+        }*/
     }
 }

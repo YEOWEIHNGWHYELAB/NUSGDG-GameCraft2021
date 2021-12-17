@@ -177,17 +177,17 @@ GameObject:
   - component: {fileID: 1651386916516167752}
   - component: {fileID: 1651386916516167755}
   - component: {fileID: 1651386916516167754}
-  - component: {fileID: 1651386916516167759}
   - component: {fileID: 1651386916516167758}
   - component: {fileID: 1651386916516167761}
   - component: {fileID: -4701709086947646657}
+  - component: {fileID: 6354751771579240965}
   m_Layer: 20
   m_Name: EnemyBlue
   m_TagString: EnemyBlue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1651386916516167750
 Transform:
   m_ObjectHideFlags: 0
@@ -195,7 +195,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651386916516167760}
-  m_LocalRotation: {x: 0.0066950116, y: -0, z: -0, w: 0.9999776}
+  m_LocalRotation: {x: 0.006693327, y: 0, z: 0, w: 0.9999776}
   m_LocalPosition: {x: 1.3628249, y: 0.16336325, z: 0.17031544}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -321,19 +321,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1651386916516167759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651386916516167760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e8f825301d0aac48966ce59937818b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!195 &1651386916516167758
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -387,12 +374,38 @@ MonoBehaviour:
   chaseRange: 6
   enemyTransform: {fileID: 1651386916516167750}
   bulletInterval: 5
-  lowWalkPointRangeX: 0
-  walkPointRangeX: 0
-  lowWalkPointRangeY: 0
-  walkPointRangeY: 0
-  enemyBullet: {fileID: 5802653531275486031, guid: 28a899289924629458686026277abfd7,
+  lowWalkPointRangeX: -7.4
+  walkPointRangeX: 4.3
+  lowWalkPointRangeY: -3.6
+  walkPointRangeY: 2.8
+  enemyBullet: {fileID: 194274740047617987, guid: 24ca4a6882a81d144841c349e1b09a87,
     type: 3}
+--- !u!61 &6354751771579240965
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651386916516167760}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.84499043}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0.03125, z: 0, w: 0.9375}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.65625, y: 1.5}
+    newSize: {x: 0.65625, y: 1.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 1
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.65625, y: 0.84998167}
+  m_EdgeRadius: 0
 --- !u!1 &1651386916759249135
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +557,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

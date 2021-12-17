@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public static bool gameHasEnded = false;
     public static bool gameIsPaused = false;
+    public static string pinStuckColor = "null";
 
     CursorMode cursorMode = CursorMode.Auto;
 

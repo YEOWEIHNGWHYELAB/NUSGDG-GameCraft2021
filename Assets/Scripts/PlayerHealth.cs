@@ -17,12 +17,26 @@ public class PlayerHealth : MonoBehaviour
         playerHealthbar.SetHealth(health, maxHealth);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, string enemyType)
     {
-        // Debug.Log("Voodoo Ouch");
+        if (GameManager.pinStuckColor != enemyType)
+        {
+            health -= damage;
+            playerHealthbar.SetHealth(health, maxHealth);
+        } 
+        else
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyType);
 
-        health -= damage;
-        playerHealthbar.SetHealth(health, maxHealth);
+            foreach (GameObject enemy in enemies)
+            {
+                if (enemy.TryGetComponent<EnemyHealth>(out var enemyHealth))
+                {
+                    enemyHealth.TakeDamage(damage);
+                }
+            }
+        }
+
         if (health <= 0)
         {
             Die();
