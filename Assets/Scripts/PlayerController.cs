@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
         bulletCooldownTimer = bulletInterval;
 
         float angle = Mathf.Atan2(requiredVector.y, requiredVector.x) * Mathf.Rad2Deg;
-
+        GameManager.pinStuckColor = "null";
         Destroy(GameObject.Find("PlayerBullet(Clone)"));
         GameObject bullet = Instantiate(playerBullet, firepoint.position, Quaternion.AngleAxis(angle, Vector3.forward));
         Rigidbody2D rigidBod = bullet.GetComponent<Rigidbody2D>();
