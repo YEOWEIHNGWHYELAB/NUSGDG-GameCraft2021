@@ -6208,6 +6208,11 @@ PrefabInstance:
       propertyPath: playerHealthbar
       value: 
       objectReference: {fileID: 785091167}
+    - target: {fileID: 4357501822978629982, guid: d248b86f964cd4748ae7cc4d0ad9246c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7038752613496005805, guid: d248b86f964cd4748ae7cc4d0ad9246c,
         type: 3}
       propertyPath: m_Name
