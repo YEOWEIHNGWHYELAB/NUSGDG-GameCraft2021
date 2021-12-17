@@ -29,7 +29,7 @@ public class PlayerBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (!isStuck && hitInfo.tag != "Player" && hitInfo.tag != "Wall")
+        if (!isStuck && hitInfo.tag != "Player" && hitInfo.tag != "Wall" && hitInfo.tag != "Trigger")
         {
             isStuck = true;
             playerBullet.velocity = Vector2.zero;

@@ -87,6 +87,7 @@ public class EnemyControlMelee : MonoBehaviour
 
             if (currentPlayerDistance < meleeRangeThreshold)
             {
+                FindObjectOfType<AudioManager>().Play("Melee");
                 FindObjectOfType<PlayerHealth>().TakeDamage(meleeDamage, tag);
                 bulletCooldownTimer = meleeInterval;
             }
