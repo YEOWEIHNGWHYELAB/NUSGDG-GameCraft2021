@@ -32,7 +32,7 @@ public class EnemyControl : MonoBehaviour
             playerCoordinates = player.transform.position;
         }
         enemyCoordinates = transform.position;
-        Debug.DrawRay(enemyCoordinates, playerCoordinates - enemyCoordinates, Color.red, 10f);
+        //Debug.DrawRay(enemyCoordinates, playerCoordinates - enemyCoordinates, Color.red, 10f);
         
 
         float playerXCoor = playerCoordinates.x;

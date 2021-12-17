@@ -86,7 +86,7 @@ public class EnemyControlMeleeRange : MonoBehaviour
         if (bulletCooldownTimer > 0) return;
 
         bulletCooldownTimer = bulletInterval;
-
+        FindObjectOfType<AudioManager>().Play("MageFire");
         Instantiate(enemyBullet, enemyTransform.position, enemyTransform.rotation);
     }
 

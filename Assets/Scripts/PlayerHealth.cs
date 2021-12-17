@@ -21,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (GameManager.pinStuckColor != enemyType)
         {
+            FindObjectOfType<AudioManager>().Play("PlayerHurt");
             health -= damage;
             playerHealthbar.SetHealth(health, maxHealth);
         } 

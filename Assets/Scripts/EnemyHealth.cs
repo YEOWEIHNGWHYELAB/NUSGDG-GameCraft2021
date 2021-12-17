@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        FindObjectOfType<AudioManager>().Play("EnemyHurt");
         health -= damage;
         enemyHealthbar.SetHealth(health, maxHealth);
         if (health <= 0)
@@ -21,7 +22,8 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
-        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        //Instantiate(deathEffect, transform.position, Quaternion.identity);
+        FindObjectOfType<AudioManager>().Play("EnemyDeath");
         Destroy(gameObject);
     }
 
