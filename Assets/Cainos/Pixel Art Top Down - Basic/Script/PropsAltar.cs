@@ -14,24 +14,40 @@ namespace Cainos.PixelArtTopDown_Basic
         private Color curColor;
         private Color targetColor;
 
+        public GameManager gm;
+        PopUpSystem pop;
+
         private void OnTriggerEnter2D(Collider2D other)
         {
-            targetColor = new Color(1, 1, 1, 1);
+            if(other.tag == "Player")
+            {
+                if (GameManager.enemyCount <= 0)
+                { 
+                    gm.EndGame(true);
+                } else
+                {
+                    pop.PopUp("Kill all enemies to proceed");
+                }
+            }
         }
 
-        private void OnTriggerExit2D(Collider2D other)
+        private void Start()
         {
-            targetColor = new Color(1, 1, 1, 0);
+            gm = FindObjectOfType<GameManager>();
+            pop = FindObjectOfType<PopUpSystem>();
+            pop.gameObject.SetActive(true);
         }
 
         private void Update()
         {
+            targetColor = new Color(1, 1, 1, 1);
             curColor = Color.Lerp(curColor, targetColor, lerpSpeed * Time.deltaTime);
 
             foreach (var r in runes)
             {
                 r.color = curColor;
             }
+            targetColor = new Color(1, 1, 1, 0);
         }
     }
 }

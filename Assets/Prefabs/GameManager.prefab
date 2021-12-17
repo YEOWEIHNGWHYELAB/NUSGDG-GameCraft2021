@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5682656852777526051}
   - component: {fileID: 5682656852777526050}
+  - component: {fileID: 922932299}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -48,3 +49,18 @@ MonoBehaviour:
   gameOverUI: {fileID: 0}
   gameOverTextUI: {fileID: 0}
   cursorTexture: {fileID: 2800000, guid: b3aaa4442da627445a758067a150cf60, type: 3}
+--- !u!114 &922932299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5682656852777526049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d65ac044358c54e922ee6b88e2360b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popUpBox: {fileID: 0}
+  animator: {fileID: 0}
+  popUpText: {fileID: 0}

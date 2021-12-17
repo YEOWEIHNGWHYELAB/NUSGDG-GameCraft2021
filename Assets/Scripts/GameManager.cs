@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static bool gameHasEnded = false;
     public static bool gameIsPaused = false;
     public static string pinStuckColor = "null";
+    public static int enemyCount;
 
     CursorMode cursorMode = CursorMode.Auto;
 
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        enemyCount = FindObjectsOfType<EnemyHealth>().Length;
         if (!gameHasEnded && !gameIsPaused)
         {
             Cursor.SetCursor(cursorTexture, Vector2.zero, cursorMode);
@@ -103,7 +105,7 @@ public class GameManager : MonoBehaviour
     public void LoadMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Start_Menu");
     }
 
     public void QuitGame()
