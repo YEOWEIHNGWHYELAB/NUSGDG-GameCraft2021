@@ -1,8 +1,9 @@
 # GameJam2021-T2
+NUS GDG Game Jam 2021
 
-<br /><br />NUS GDG Game Jam 2021
+<br />Play it at: https://whyelab.itch.io/voodoo-supremacist
 
-<br /><br />Team Name: VooDoo Supremacist
+<br />Team Name: VooDoo Supremacist
 
 <br /><br />Team members: Min Hein Aung, Yeo Wei Hng, Cheung Kai Ning
 
