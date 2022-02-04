@@ -5,24 +5,24 @@ NUS GDG Game Jam 2021
 
 <br />Team Name: VooDoo Supremacist
 
-<br /><br />Team members: Min Hein Aung, Yeo Wei Hng, Cheung Kai Ning
+<br />Team members: Min Hein Aung, Yeo Wei Hng, Cheung Kai Ning
 
-<br /><br />Contribution:
-Min Hein Aung: Lead programmer & integration of Art, Animation, Music & Sound Effect assets.
-Yeo Wei Hng: Player & Enemy Weapons, Enemy Behavior, Level Design, Created Sound Effects.
-Cheung Kai Ning: Art & Game Design.
+<br />Contribution:
+<br />Min Hein Aung: Lead programmer & integration of Art, Animation, Music & Sound Effect assets.
+<br />Yeo Wei Hng: Player & Enemy Weapons, Enemy Behavior, Level Design, Created Sound Effects.
+<br />Cheung Kai Ning: Art & Game Design.
 
-<br /><br />Game Controls: 
+<br />Game Controls: 
 WASD - Move Up, Left, Down and Right
 Mouse - Aim
 Mouse Left Button - Fire VooDoo Pin
 
-<br /><br />Game Story:
+<br />Game Story:
 You are stuck in a warzone and you are a wizard who is physically weaker than the others. But with magic 
 you can turn the tables. You can a turn into a Voodoo and then turn your opponent's strength against themselves. 
 In other words, you can lose (take damage deliberately in voodoo mode) in order to win (kill your opponents)!
 
-<br /><br />GamePlay: 
+<br />GamePlay: 
 Your objective is to escape the enemy infested map through the portal. Your main weapon is the VooDoo pin which can be used to pin your enemy, you can damage that particular enemy by getting hit by the arrow that is shot by that particular enemy. Getting hit by other enemy will damage yourself. Each VooDoo pin can last a duration of 5 second once it is stuck onto an enemy, make good use of this time to get hit by that particular enemy struck by the VooDoo pin. In this game, there are four different enemies shown with different tint (green, red, blue, yellow). They have different behaviour and are always in patrol mode until when the player get close to it. 
 
 - Green - Melee only. (Starts chasing player within a distance)
